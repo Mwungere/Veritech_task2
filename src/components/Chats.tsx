@@ -30,8 +30,6 @@ interface ChatsProps {
 }
 
 const Chats: React.FC<ChatsProps> = ({ selectedFriend }) => {
-  const [profile, setProfile] = useState(true); // Moved useState inside the component
-  console.log(profile);
   
   const [value, setvalue] = useState<string>("");
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +58,7 @@ const Chats: React.FC<ChatsProps> = ({ selectedFriend }) => {
               <IconButton>
                 <VideoCall color="primary" sx={{ fontSize: "30px" }} />
               </IconButton>
-              <IconButton onClick={() =>{setProfile(!profile)}}>
+              <IconButton>
                 <MoreHoriz color="primary" sx={{ fontSize: "30px" }} />
               </IconButton>
             </div>
@@ -100,7 +98,6 @@ const Chats: React.FC<ChatsProps> = ({ selectedFriend }) => {
                       <Face />
                     </InputAdornment>
                   }
-                  inputProps={{}}
                 />
               </FormControl>
             </div>

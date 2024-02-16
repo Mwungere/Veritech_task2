@@ -159,7 +159,7 @@ const Friends: React.FC<FriendsProps> = ({ onSelectFriend }) => {
       <div className=" overflow-y-scroll">
         <List>
           {friendList.map((friend) => (
-            <ListItem key={friend.index} onClick={() => handleClick(friend)}>
+            <ListItem key={friend.index} onClick={() => handleClick(friend)} className={``} >
               <ListItemButton>
                 <ListItemIcon>
                   <img
