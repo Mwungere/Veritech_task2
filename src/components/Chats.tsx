@@ -131,8 +131,9 @@ const Chats: React.FC<ChatsProps> = ({ selectedFriend }) => {
             </div>
 
             <div className=" w-full">
-              <FormControl fullWidth sx={{ m: 1 }}>
+              <FormControl fullWidth >
                 <OutlinedInput
+                sx={{borderRadius:50}}
                 endAdornment={
                   <InputAdornment position="end"><Face/></InputAdornment>
                 }
