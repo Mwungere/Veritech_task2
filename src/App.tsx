@@ -20,7 +20,7 @@ function App() {
       <div className=' w-[40%]'>
         <Chats selectedFriend={selectedFriend}  />
       </div>
-      <div className=' w-[30%]'>
+      <div className=' hidden md:block w-[30%]'>
         <Profile selectedFriend={selectedFriend}  />
       </div>
     </div>

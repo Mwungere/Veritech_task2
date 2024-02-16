@@ -1,13 +1,17 @@
-
 import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import { IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { Friend, SelectFriendFunction } from "../types";
-
-
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,16 +61,76 @@ interface FriendsProps {
 
 const Friends: React.FC<FriendsProps> = ({ onSelectFriend }) => {
   const friendList: Friend[] = [
-    {"index": 1, "name": "Alice", "message": "Alice, a good friend, is now available on Messenger", img:'https://randomuser.me/api/portraits/women/29.jpg', active:"2h"},
-    {"index": 2, "name": "Bob", "message": "Hey, Bob is online on Messenger", img:'https://randomuser.me/api/portraits/men/19.jpg', active:"2h"},
-    {"index": 3, "name": "Charlie", "message": "Charlie is now active on Messenger", img:'https://randomuser.me/api/portraits/women/59.jpg', active:"2h"},
-    {"index": 4, "name": "David", "message": "David, your buddy, is online on Messenger", img:'https://randomuser.me/api/portraits/men/89.jpg', active:"2h"},
-    {"index": 5, "name": "Eve", "message": "Eve is available for a chat on Messenger", img:'https://randomuser.me/api/portraits/women/23.jpg', active:"2h"},
-    {"index": 6, "name": "Frank", "message": "Frank is on Messenger, ready to connect", img:'https://randomuser.me/api/portraits/men/7.jpg', active:"2h"},
-    {"index": 7, "name": "Grace", "message": "Grace is online now, drop her a message on Messenger", img:'https://randomuser.me/api/portraits/women/75.jpg', active:"2h"},
-    {"index": 8, "name": "Henry", "message": "Henry, your friend, is available on Messenger", img:'https://randomuser.me/api/portraits/men/12.jpg', active:"2h"},
-    {"index": 9, "name": "Ivy", "message": "Ivy is waiting for your message on Messenger", img:'https://randomuser.me/api/portraits/women/11.jpg', active:"2h"},
-    {"index": 10, "name": "Jack", "message": "Jack is now active on Messenger", img:'https://randomuser.me/api/portraits/men/79.jpg', active:'2hr'},
+    {
+      index: 1,
+      name: "Alice",
+      message: "Alice, a good friend, is now available on Messenger",
+      img: "https://randomuser.me/api/portraits/women/29.jpg",
+      active: "2h",
+    },
+    {
+      index: 2,
+      name: "Bob",
+      message: "Hey, Bob is online on Messenger",
+      img: "https://randomuser.me/api/portraits/men/19.jpg",
+      active: "21h",
+    },
+    {
+      index: 3,
+      name: "Charlie",
+      message: "Charlie is now active on Messenger",
+      img: "https://randomuser.me/api/portraits/women/59.jpg",
+      active: "2min",
+    },
+    {
+      index: 4,
+      name: "David",
+      message: "David, your buddy, is online on Messenger",
+      img: "https://randomuser.me/api/portraits/men/89.jpg",
+      active: "6min",
+    },
+    {
+      index: 5,
+      name: "Eve",
+      message: "Eve is available for a chat on Messenger",
+      img: "https://randomuser.me/api/portraits/women/23.jpg",
+      active: "23h",
+    },
+    {
+      index: 6,
+      name: "Frank",
+      message: "Frank is on Messenger, ready to connect",
+      img: "https://randomuser.me/api/portraits/men/7.jpg",
+      active: "5w",
+    },
+    {
+      index: 7,
+      name: "Grace",
+      message: "Grace is online now, drop her a message on Messenger",
+      img: "https://randomuser.me/api/portraits/women/75.jpg",
+      active: "1h",
+    },
+    {
+      index: 8,
+      name: "Henry",
+      message: "Henry, your friend, is available on Messenger",
+      img: "https://randomuser.me/api/portraits/men/12.jpg",
+      active: "10min",
+    },
+    {
+      index: 9,
+      name: "Ivy",
+      message: "Ivy is waiting for your message on Messenger",
+      img: "https://randomuser.me/api/portraits/women/11.jpg",
+      active: "3h",
+    },
+    {
+      index: 10,
+      name: "Jack",
+      message: "Jack is now active on Messenger",
+      img: "https://randomuser.me/api/portraits/men/79.jpg",
+      active: "2hr",
+    },
   ];
 
   const handleClick = (friend: Friend) => {
@@ -98,9 +162,21 @@ const Friends: React.FC<FriendsProps> = ({ onSelectFriend }) => {
             <ListItem key={friend.index} onClick={() => handleClick(friend)}>
               <ListItemButton>
                 <ListItemIcon>
-                  <img src={friend.img} alt={friend.name} className=" rounded-full w-12" />
+                  <img
+                    src={friend.img}
+                    alt={friend.name}
+                    className=" rounded-full w-12"
+                  />
                 </ListItemIcon>
-                <ListItemText primary={friend.name} secondary={friend.message} />
+                <ListItemText
+                  primary={friend.name}
+                  secondary={
+                    friend.message.length > 20
+                      ? `${friend.message.slice(0, 20)}...${friend.active}`
+                      : friend.message
+                  }
+                  
+                />
               </ListItemButton>
             </ListItem>
           ))}
