@@ -108,8 +108,8 @@ const Chats: React.FC<ChatsProps> = ({ selectedFriend }) => {
         </div>
       )}
       {!selectedFriend && (
-        <div>
-          <h3>No chats Selected</h3>
+        <div className=" w-full h-full items-center text-center">
+          <h3 className=" self-center items-center mt-[50%] text-3xl font-bold">No chats Selected</h3>
         </div>
       )}
     </div>
